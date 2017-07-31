@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<div id="result"></div><button onclick="zimu(10)">生成</button>
+<body>
+<script>
+    var result = [];
+    function zimu(len) {
+        len = len || 1;
+        var $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZasdfghjklmnbvcxzqwertyuiop0123456789';
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        console.log(pwd);
+    }
+//        $("#Editor").val(mingzi(5));  //生成5个字母/**/
+</script>
+</body>
+</html>
