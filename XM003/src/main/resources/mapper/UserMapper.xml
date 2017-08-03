@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sd.xm003.mapper.UserMapper">
-    <select id="queryAllUser" parameterType="map" resultType="com.sd.xm003.model.UserModel">
-        select * from user
-    </select>
+  <resultMap id="BaseResultMap" type="com.sd.xm003.model.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="enable" jdbcType="INTEGER" property="enable" />
+  </resultMap>
 
-    <update id="updateUser" parameterType="com.sd.xm003.model.UserModel">
-        UPDATE user set username ='aaaaa' WHERE  id = #{id}
-    </update>
+  <resultMap id="UserResultMap" type="com.sd.xm003.model.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="enable" jdbcType="INTEGER" property="enable" />
+    <collection property="roles" ofType="com.sd.xm003.model.Role">
+      <id property="id" column="id"/>
+      <result property="roledesc" column="roleDesc"/>
+      <collection property="resources" ofType="com.sd.xm003.model.Resources">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+      </collection>
+    </collection>
+  </resultMap>
+
+  <select id="findByUserName" parameterType="java.lang.String" resultMap="UserResultMap">
+     select u.* , r.* , m.* from  user  u inner join user_role ur on u.id = ur.userId
+     INNER JOIN role r on ur.roleId = r.id
+     INNER JOIN role_resources rr on r.id = rr.roleId
+     INNER JOIN resources m on m.id = rr.resourcesId
+     WHERE  u.username = #{username}
+  </select>
 </mapper>
