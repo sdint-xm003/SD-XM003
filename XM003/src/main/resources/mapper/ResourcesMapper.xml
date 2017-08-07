@@ -29,7 +29,7 @@
         <if test="type != null">
             AND re.type= #{type}
         </if>
-        GROUP BY re.id
+        GROUP BY  re.id,re.name,re.parentId,re.resUrl,re.sort
         ORDER BY re.sort ASC
     </select>
 

@@ -3,6 +3,7 @@ package com.sd.xm003.service;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by KF03 on 2017/7/22.
@@ -21,5 +22,6 @@ public interface IService<T>{
 
     List<T> selectByExample(Object example);
 
-    //TODO 其他...
+
+//    //TODO 其他...
 }

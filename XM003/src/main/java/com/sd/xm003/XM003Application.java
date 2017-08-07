@@ -13,21 +13,29 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Created by KF03 on 2017/7/22.
  */
 @SpringBootApplication
+@EnableTransactionManagement
 @MapperScan(basePackages ={"com.sd.xm003.mapper"} )
 public class XM003Application {
+    @Bean
+    public Object testBean(PlatformTransactionManager platformTransactionManager){
+        System.out.println(">>>>>>>>>>" + platformTransactionManager.getClass().getName());
+        return new Object();
+    }
+//    数据源
     @Bean
     @ConfigurationProperties(prefix="spring.datasource")
     public DataSource dataSource() {
         DataSource dataSource = new DataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/shiro");
-        dataSource.setUsername("root");
-        dataSource.setPassword("123456");
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:sqlserver://192.168.31.180:1433;DatabaseName=XM003");
+        dataSource.setUsername("sa");
+        dataSource.setPassword("sd30991602");
+        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return dataSource;
     }
 

@@ -1,11 +1,18 @@
 package com.sd.xm003.service.impl;
 
+import com.sd.xm003.mapper.UtilBaseMapper;
+import com.sd.xm003.model.BaseMould;
 import com.sd.xm003.model.UserRole;
 import com.sd.xm003.service.UserRoleService;
+import com.sd.xm003.service.UtilBaseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by yangqj on 2017/4/26.
@@ -32,4 +39,6 @@ public class UserRoleServiceImpl extends BaseService<UserRole> implements UserRo
         }
 
     }
+
+
 }

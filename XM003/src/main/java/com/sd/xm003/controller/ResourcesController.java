@@ -5,8 +5,11 @@ import com.sd.xm003.model.Resources;
 import com.sd.xm003.model.Role;
 import com.sd.xm003.model.User;
 import com.sd.xm003.service.ResourcesService;
+import com.sd.xm003.service.UserService;
+import com.sd.xm003.service.UtilBaseService;
 import com.sd.xm003.shiro.ShiroService;
 import org.apache.shiro.SecurityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +29,8 @@ public class ResourcesController {
     private ResourcesService resourcesService;
     @Resource
     private ShiroService shiroService;
+//    @Resource
+//    private UtilBaseService utilBaseService;
 
     @RequestMapping
     public Map<String,Object> getAll(Resources resources, String draw,
@@ -40,6 +45,7 @@ public class ResourcesController {
         map.put("data", pageInfo.getList());
         return map;
     }
+
 
     @RequestMapping("/resourcesWithSelected")
     public List<Resources> resourcesWithSelected(Integer rid){

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-@Table(name = "user")
+@Table(name = "users")
 public class User implements Serializable{
     private static final long serialVersionUID = -8736616045315083846L;
     @Id

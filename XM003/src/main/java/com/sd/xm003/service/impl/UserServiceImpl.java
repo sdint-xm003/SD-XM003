@@ -47,6 +47,11 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
         List<User> userList = selectByExample(example);
         return new PageInfo<>(userList);
     }
+//    @Override
+//    public List<User> queryAllUser(Map<String, Object> map) {
+//        List<User> users=userMapper.queryAllUser(map);
+//        return null;
+//    }
 
     @Override
     public User selectByUsername(String username) {
@@ -64,4 +69,6 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
         criteria.andEqualTo("userid",userid);
         userRoleMapper.deleteByExample(example);
     }
+
+
 }

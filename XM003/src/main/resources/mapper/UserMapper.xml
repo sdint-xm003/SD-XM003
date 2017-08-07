@@ -27,7 +27,7 @@
   </resultMap>
 
   <select id="findByUserName" parameterType="java.lang.String" resultMap="UserResultMap">
-     select u.* , r.* , m.* from  user  u inner join user_role ur on u.id = ur.userId
+     select u.* , r.* , m.* from dbo.[users]  u inner join user_role ur on u.id = ur.userId
      INNER JOIN role r on ur.roleId = r.id
      INNER JOIN role_resources rr on r.id = rr.roleId
      INNER JOIN resources m on m.id = rr.resourcesId

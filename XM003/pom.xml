@@ -60,9 +60,16 @@
     <!--mybatis分页插件-->
     <dependency>
       <groupId>com.github.pagehelper</groupId>
-      <artifactId>pagehelper-spring-boot-starter</artifactId>
-      <version>1.1.0</version>
+      <artifactId>pagehelper</artifactId>
+      <version>5.0.4</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
     <!--mybatis-->
     <dependency>
       <groupId>tk.mybatis</groupId>
@@ -89,7 +96,12 @@
       <version>4.0</version>
     </dependency>
 
-
+    <!--jackson-core -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.8.8</version>
+    </dependency>
     <!--使用HTML文件，没法引入shiro的tag lib，此时如果要使用shiro的话，可以引入
     thymeleaf-extras-shiro.jar这个拓展包来曲线实现shiro的前端验证。-->
     <dependency>
@@ -119,7 +131,13 @@
     <artifactId>spring-session-data-redis</artifactId>
     <version>1.2.1.RELEASE</version>
   </dependency>
-
+    <!--//通用mapper-->
+    <dependency>
+      <groupId>tk.mybatis</groupId>
+      <artifactId>mapper</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+  <!--nekohtml解析器-->
     <dependency>
       <groupId>net.sourceforge.nekohtml</groupId>
       <artifactId>nekohtml</artifactId>

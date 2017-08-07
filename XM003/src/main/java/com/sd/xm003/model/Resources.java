@@ -3,7 +3,7 @@ package com.sd.xm003.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-public class Resources implements Serializable{
+public class Resources extends BaseMould implements Serializable{
     private static final long serialVersionUID = -6812242071705361506L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
